@@ -68,5 +68,38 @@ namespace Introduction
             context.SubmitChanges();
             dataGridView1.DataSource = context.Products;
         }
+
+        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            DataGridViewRow row = dataGridView1.CurrentRow;
+            txtProductName.Text = row.Cells["ProductName"].Value.ToString();
+            //güncelleme sırasında id lazım olacagı içi onu cepe yani Tag'e atıyoruz.
+            txtProductName.Tag = row.Cells["ProductID"].Value;
+            cmbCategory.SelectedValue = row.Cells["CategoryID"].Value;
+            cmbSupplier.SelectedValue = row.Cells["SupplierID"].Value;
+            nudPrice.Value = (decimal)row.Cells["UnitPrice"].Value;
+            nudStock.Value = (short)row.Cells["UnitsInStock"].Value;
+
+        }
+
+        private void btnUpdate_Click(object sender, EventArgs e)
+        {
+            int productId = (int)txtProductName.Tag;
+            NorthWindDataContext context = new NorthWindDataContext();
+            Product product = new Product();
+            context.Products.SingleOrDefault(prd => prd.ProductID == productId);
+            product.ProductName = txtProductName.Text;
+            product.UnitPrice = nudPrice.Value;
+            product.UnitsInStock = (short)nudStock.Value;
+            product.CategoryID = (int)cmbCategory.SelectedValue;
+            product.SupplierID = (int)cmbSupplier.SelectedValue;
+
+            //update işlemini direk olarak algılıyor.
+            //o yüzden direk submit yapıyoruz.
+            context.SubmitChanges();
+
+            dataGridView1.DataSource = context.Products;
+
+        }
     }
 }
