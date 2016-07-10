@@ -16,5 +16,15 @@ namespace Introduction
         {
             InitializeComponent();
         }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
+
+            NorthWindDataContext context = new NorthWindDataContext();
+
+            dataGridView1.DataSource = context.Products;
+
+        }
     }
 }
