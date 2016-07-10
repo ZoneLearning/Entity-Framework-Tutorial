@@ -101,5 +101,23 @@ namespace Introduction
             dataGridView1.DataSource = context.Products;
 
         }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+            NorthWindDataContext context = new NorthWindDataContext();
+            dataGridView1.DataSource = context.Products.Where(x => x.ProductName.Contains(textBox1.Text));
+        }
+
+        private void rdbName_CheckedChanged(object sender, EventArgs e)
+        {
+            NorthWindDataContext context = new NorthWindDataContext();
+            if (rdbName.Checked)
+                dataGridView1.DataSource = context.Products.OrderBy(x => x.ProductName);
+            else if (rdbStock.Checked)
+                dataGridView1.DataSource = context.Products.OrderByDescending(x => x.UnitsInStock);
+            else if (rdbCPrice.Checked)
+                dataGridView1.DataSource = context.Products.OrderByDescending(x => x.UnitPrice);
+        }
+
     }
 }
