@@ -37,6 +37,7 @@ namespace Introduction
         {
             NorthWindDataContext context = new NorthWindDataContext();
             Product product = new Product();
+
             product.ProductName = txtProductName.Text;
             product.UnitPrice = nudPrice.Value;
             product.UnitsInStock = (short)nudStock.Value;
@@ -49,6 +50,22 @@ namespace Introduction
             Bunu diyene kadar DB değişmez.*/
             context.SubmitChanges();
 
+            dataGridView1.DataSource = context.Products;
+        }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            int productId = (int)dataGridView1.CurrentRow.Cells["ProductID"].Value;
+            NorthWindDataContext context = new NorthWindDataContext();
+            //Lambda ya da Linq Expression.
+            //Single--> tekil elaman seçmek için kullanılan metod. Sorguya gider, sadece ilk elemanı getirir.
+            //Eger Single metodu birden fazla eleman secerse hata verir. Ayrıca istenilen elemanı bulamazsa hata verir. Bunun için SingleOrDefault metodu yazılmış.
+            //Deger bulabilirse degeri getirir, bulamazsa null getirir.
+            // => öyle ki demek
+            //prd diyebir şey tanımlamadığım halde SingleOrDefault metodunu Products'a uyguladığım için prd'nin Product oldugunu anlıyor. (Lambda Expression)
+            Product product = context.Products.SingleOrDefault(prd => prd.ProductID == productId);
+            context.Products.DeleteOnSubmit(product);
+            context.SubmitChanges();
             dataGridView1.DataSource = context.Products;
         }
     }
