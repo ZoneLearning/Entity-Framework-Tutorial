@@ -30,9 +30,20 @@ namespace LinqExpressions
                          select new
                          {
                              ProductName = myGroup.Key,
-                             SumOrder = myGroup.Sum(x => x.UnitPrice * x.Quantity)  // Bu yüzden product ve order detai ile sutunlara ulaşamam. myGroup ile ulaşılacak.
+                             TotalOrder = myGroup.Sum(x => x.UnitPrice * x.Quantity)  // Bu yüzden product ve order detai ile sutunlara ulaşamam. myGroup ile ulaşılacak.
                          };
-            dataGridView1.DataSource = result;
+
+
+            var result2 = from product in context.Products
+                          select new
+                          {
+                              product.ProductName,
+                              // her tablonun baglı oldugu tablo il ilgili bilgisi vardır.Linq bunu property olarak belirlemiştir. product'ın Order_Details property'is örneği gibi.
+                              TotalOrder = product.Order_Details.Any()?product.Order_Details.Sum(x=>x.UnitPrice*x.Quantity):0  // Any() var mı diye kontrol etmek icindir.
+
+                          };
+
+            dataGridView1.DataSource = result2;
         }
     }
 }
