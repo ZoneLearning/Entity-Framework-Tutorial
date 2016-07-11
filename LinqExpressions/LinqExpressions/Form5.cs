@@ -32,6 +32,21 @@ namespace LinqExpressions
             var result = from product in context.Products
                          orderby product.ProductName descending  // Z'den A'ya dogru
                          select product;
+            // dataGridView1.DataSource = result;
+
+            var result2 = from order in context.Orders
+                          orderby order.OrderDate
+                          descending
+                          select order;
+            dataGridView1.DataSource = result2;
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            DateTime tarih = Convert.ToDateTime(maskedTextBox1.Text);
+            var result = from order in context.Orders
+                         where order.OrderDate == tarih
+                         select order;
             dataGridView1.DataSource = result;
         }
     }
