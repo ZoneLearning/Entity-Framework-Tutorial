@@ -16,5 +16,19 @@ namespace LinqExpressions
         {
             InitializeComponent();
         }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            NorthWindDataContext context = new NorthWindDataContext();
+            dataGridView1.DataSource = from p in context.Products
+                                       join c in context.Categories on p.CategoryID equals c.CategoryID
+                                       select new
+                                       {
+                                           p.ProductName,
+                                           c.CategoryName,
+                                           p.UnitPrice,
+                                           p.UnitsInStock
+                                       };
+        }
     }
 }
