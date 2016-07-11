@@ -26,7 +26,7 @@ namespace LinqExpressions
             var result = from product in context.Products
                          join orderdetail in context.Order_Details
                          on product.ProductID equals orderdetail.ProductID
-                         group orderdetail by product.ProductName into myGroup // gruplandıktan sonra yei bir eleman ortaya cıkıyor. myGroup.
+                         group orderdetail by product.ProductName into myGroup // gruplandıktan sonra yeni bir eleman ortaya cıkıyor. myGroup.
                          select new
                          {
                              ProductName = myGroup.Key,
