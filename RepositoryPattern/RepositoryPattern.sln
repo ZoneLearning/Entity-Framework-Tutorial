@@ -5,6 +5,8 @@ VisualStudioVersion = 14.0.25123.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RepositoryPattern.UI", "RepositoryPattern.UI\RepositoryPattern.UI.csproj", "{3B8397A7-BB52-4473-A8EE-A5E967CAA608}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RepositoryPattern.ORM", "RepositoryPattern.ORM\RepositoryPattern.ORM.csproj", "{85328CE2-A33D-4E6E-8754-1C077C6F1CA9}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{3B8397A7-BB52-4473-A8EE-A5E967CAA608}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3B8397A7-BB52-4473-A8EE-A5E967CAA608}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3B8397A7-BB52-4473-A8EE-A5E967CAA608}.Release|Any CPU.Build.0 = Release|Any CPU
+		{85328CE2-A33D-4E6E-8754-1C077C6F1CA9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{85328CE2-A33D-4E6E-8754-1C077C6F1CA9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{85328CE2-A33D-4E6E-8754-1C077C6F1CA9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{85328CE2-A33D-4E6E-8754-1C077C6F1CA9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
