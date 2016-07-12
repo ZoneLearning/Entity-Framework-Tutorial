@@ -7,7 +7,7 @@ using RepositoryPattern.ORM.Models;
 
 namespace RepositoryPattern.Repository
 {
-    public class RepositoryBase<T> where T: class
+    public class RepositoryBase<T> where T : class
     {
         private static NORTHWNDContext context; // tekil elaman = static
 
@@ -27,7 +27,26 @@ namespace RepositoryPattern.Repository
         public IList<T> getList()
         {
             return Context.Set<T>().ToList();
-                }
+        }
 
+        public void Add(T entity)
+        {
+            Context.Set<T>().Add(entity);
+            Context.SaveChanges();
+            //ekleme işleminden sonra context'i yenilemek lazım.
+            Context = new NORTHWNDContext();
+        }
+
+        public void Delete(T entity)
+        {
+            Context.Set<T>().Remove(entity);
+            Context.SaveChanges();
+            Context = new NORTHWNDContext();
+        }
+        //güncelle metodu parametre almıyor
+        public void Update()
+        {
+            Context.SaveChanges();
+        }
     }
 }
