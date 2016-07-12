@@ -1,4 +1,5 @@
-﻿using System;
+﻿using RepositoryPattern.ORM.Models;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,6 +16,12 @@ namespace RepositoryPattern.UI
         public Form1()
         {
             InitializeComponent();
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            NORTHWNDContext context = new NORTHWNDContext();
+            dataGridView1.DataSource = context.Products.ToList();
         }
     }
 }

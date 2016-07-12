@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RepositoryPattern.UI", "Rep
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RepositoryPattern.ORM", "RepositoryPattern.ORM\RepositoryPattern.ORM.csproj", "{85328CE2-A33D-4E6E-8754-1C077C6F1CA9}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RepositoryPattern.Repository", "RepositoryPattern.Repository\RepositoryPattern.Repository.csproj", "{CDAAD5BC-5A5E-4D29-ADB4-7F2916D4C918}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{85328CE2-A33D-4E6E-8754-1C077C6F1CA9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{85328CE2-A33D-4E6E-8754-1C077C6F1CA9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{85328CE2-A33D-4E6E-8754-1C077C6F1CA9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CDAAD5BC-5A5E-4D29-ADB4-7F2916D4C918}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CDAAD5BC-5A5E-4D29-ADB4-7F2916D4C918}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CDAAD5BC-5A5E-4D29-ADB4-7F2916D4C918}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CDAAD5BC-5A5E-4D29-ADB4-7F2916D4C918}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
