@@ -1,4 +1,5 @@
 ﻿using RepositoryPattern.DTO.Product;
+using RepositoryPattern.ORM.Models;
 using RepositoryPattern.Repository;
 using System;
 using System.Collections.Generic;
@@ -28,12 +29,26 @@ namespace RepositoryPattern.Service
                     ProductID = x.ProductID,
                     ReorderLevel = x.ReorderLevel,
                     QuantityPerUnit = x.QuantityPerUnit,
-                    CategoryID=x.CategoryID,
+                    CategoryID = x.CategoryID,
                     SupplierID = x.SupplierID,
-                    Discontinued=x.Discontinued,
+                    Discontinued = x.Discontinued,
                     UnitsOnOrder = x.UnitsOnOrder
                 }
                 ).ToList();
+        }
+
+        public void Add(AddProductDTO entity)
+        {
+            //object initializer ile doldurdum.
+            Product product = new Product()
+            {
+                ProductName = entity.ProductName,
+                UnitPrice = entity.Price,
+                UnitsInStock = entity.UnitsInStock,
+                CategoryID = entity.CategoryID,
+                SupplierID = entity.SupplierID
+            };
+            repository.Add(product);
         }
 
     }
