@@ -19,9 +19,13 @@ namespace RepositoryPattern.UI
         }
 
         private void Form1_Load(object sender, EventArgs e)
-        {
-            NORTHWNDContext context = new NORTHWNDContext();
-            dataGridView1.DataSource = context.Products.ToList();
+        {     //UI asla dogrudan context elemanına ulaşamaz!!
+            // referanslarda servis katmanı olacak.
+
+// REFERENCES'lerden EKLEME YAPARKEN HATA VERİYOR. PROJE PATLADI.
+
+           // ProductService service = new ProductService();
+           //dataGridView.DataSource =service.getList();
         }
     }
 }
